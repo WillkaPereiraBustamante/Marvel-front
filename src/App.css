@@ -1,0 +1,91 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+/* HEADER */
+
+.main-logo {
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-logo img {
+  height: 100%;
+}
+
+header > nav > ul {
+  display: flex;
+  justify-content: space-between;
+}
+
+header > nav > ul a {
+  text-decoration: none;
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+}
+
+/* Characters */
+
+.nav-search {
+  display: flex;
+  justify-content: space-between;
+}
+
+.items-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  /* border: 2px solid red; */
+  padding: 80px 0;
+}
+
+.characters-card {
+  width: 350px;
+  height: 600px;
+  /* border: 2px solid black; */
+  box-shadow: 5px 5px 25px 1px black;
+  border-radius: 10px;
+  padding: 8px;
+}
+.characters-card img {
+  width: 100%;
+  height: 350px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.comics-card {
+  width: 400px;
+  height: 800px;
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.comics-card img {
+  width: 100%;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.characters-description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+@media (max-width: 850px) {
+  .container {
+    margin: none;
+  }
+}
