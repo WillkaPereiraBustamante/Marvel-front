@@ -25,7 +25,7 @@ const Signup = ({ handleConnexionStatus }) => {
 
     try {
       const response = await axios.post(
-        `http://localhost:4000/user/signup`,
+        `https://site--willka-marvel-backend--79d24psydslc.code.run/user/signup`,
         formData
       );
       if (response.data.token) {
@@ -43,64 +43,70 @@ const Signup = ({ handleConnexionStatus }) => {
   };
 
   return (
-    <div className="signup-container container">
-      <h2>SIGNUP</h2>
-      <form onSubmit={handleSubmit} className="signup-form">
-        <div>
-          <label htmlFor="file" className="label-file">
-            <span>+</span>
-            <span>Ajoute une photo</span>
-          </label>
-          <input
-            className="input-file"
-            type="file"
-            id="file"
-            onChange={(event) => {
-              setAvatar(event.target.files[0]);
-            }}
-          />
-        </div>
-        <input
-          value={username}
-          onChange={(event) => {
-            setUsername(event.target.value);
-          }}
-          placeholder="USERNAME"
-          type="text"
-        />
-        <input
-          value={email}
-          onChange={(event) => {
-            setEmail(event.target.value);
-            setErrorMessage("");
-          }}
-          placeholder="EMAIL"
-          type="email"
-        />
-        <span className="signup-login-error-message">{errorMessage}</span>
-        <input
-          value={password}
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-          placeholder="PASSWORD"
-          type="password"
-        />
-        <div className="checkbox-container">
+    <main>
+      <div className="signup-container container">
+        <h2>SIGNUP</h2>
+        <form onSubmit={handleSubmit} className="signup-form">
           <div>
-            <input type="checkbox" />
-            <span>S'inscrire à notre newsletter</span>
+            {avatar ? (
+              "avatar uploaded !"
+            ) : (
+              <label htmlFor="file" className="label-file">
+                <span>+</span>
+                <span>Add avatar</span>
+              </label>
+            )}
+            <input
+              className="input-file"
+              type="file"
+              id="file"
+              onChange={(event) => {
+                setAvatar(event.target.files[0]);
+              }}
+            />
           </div>
-          <p>
-            En m'inscrivant je confirme avoir lu et accepté les Termes &
-            Conditions et Politique de Confidentialité de Marvel. Je confirme
-            avoir au moins 18 ans.
-          </p>
-        </div>
-        <button type="submit">SIGNUP</button>
-      </form>
-      <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
-    </div>
+          <input
+            value={username}
+            onChange={(event) => {
+              setUsername(event.target.value);
+            }}
+            placeholder="USERNAME"
+            type="text"
+          />
+          <input
+            value={email}
+            onChange={(event) => {
+              setEmail(event.target.value);
+              setErrorMessage("");
+            }}
+            placeholder="EMAIL"
+            type="email"
+          />
+          <span className="signup-login-error-message">{errorMessage}</span>
+          <input
+            value={password}
+            onChange={(event) => {
+              setPassword(event.target.value);
+            }}
+            placeholder="PASSWORD"
+            type="password"
+          />
+          <div className="checkbox-container">
+            <div>
+              <input type="checkbox" />
+              <span>S'inscrire à notre newsletter</span>
+            </div>
+            <p>
+              En m'inscrivant je confirme avoir lu et accepté les Termes &
+              Conditions et Politique de Confidentialité de Marvel. Je confirme
+              avoir au moins 18 ans.
+            </p>
+          </div>
+          <button type="submit">SIGNUP</button>
+        </form>
+        <Link to="/user/login">Tu as déjà un compte ? Connecte-toi !</Link>
+      </div>
+    </main>
   );
 };
 

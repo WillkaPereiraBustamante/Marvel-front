@@ -70,7 +70,7 @@ const Comics = () => {
           );
         })}
       </div>
-      <div className="pagination container">
+      <div className="nav-search nav-search-bottom container">
         <button
           onClick={() => {
             if (page > 1) {

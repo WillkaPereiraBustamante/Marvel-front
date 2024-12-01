@@ -59,7 +59,11 @@ const Characters = () => {
       <div className="items-container container">
         {data.results.map((result) => {
           return (
-            <Link to={`/comics/${result._id}`} key={result._id}>
+            <Link
+              to={`/comics/${result._id}`}
+              key={result._id}
+              img={result.thumbnail.path + "." + result.thumbnail.extension}
+            >
               <div className="items-card">
                 <img
                   src={result.thumbnail.path + "." + result.thumbnail.extension}
@@ -69,12 +73,13 @@ const Characters = () => {
                   <h3>{result.name}</h3>
                   <p>{result.description}</p>
                 </div>
+                <div className="item-card-favorite"></div>
               </div>
             </Link>
           );
         })}
       </div>
-      <div className="nav-search container">
+      <div className="nav-search nav-search-bottom container">
         <button
           onClick={() => {
             if (page > 1) {

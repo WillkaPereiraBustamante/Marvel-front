@@ -74,7 +74,7 @@ const Characters = () => {
           );
         })}
       </div>
-      <div className="nav-search container">
+      <div className="nav-search nav-search-bottom container">
         <button
           onClick={() => {
             if (page > 1) {

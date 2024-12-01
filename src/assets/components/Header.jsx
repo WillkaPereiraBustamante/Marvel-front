@@ -1,16 +1,36 @@
 import { Link, useNavigate } from "react-router-dom";
 
-const Header = () => {
+const Header = ({ token, handleConnexionStatus }) => {
   const navigate = useNavigate();
 
   return (
     <header>
       <div className="header-logo container">
-        <Link to={"/user/signup"}>
-          <div className="signin-signup">
-            <p>signIn /signUp</p>
-          </div>
-        </Link>
+        <div>
+          {token ? (
+            <div className="header-login-buttons">
+              <button
+                className="button-login-signup"
+                onClick={() => {
+                  handleConnexionStatus(null);
+                  navigate("/");
+                }}
+              >
+                LOGOUT
+              </button>
+            </div>
+          ) : (
+            <div className="header-login-buttons">
+              <Link to="user/signup">
+                <button className="button-login-signup">signUp</button>
+              </Link>
+              <span>/</span>
+              <Link to="user/login">
+                <button className="button-login-signup">logIn</button>
+              </Link>
+            </div>
+          )}
+        </div>
         <Link to={"/"}>
           <div className="main-logo">
             <img src="src/assets/imgs/marvel_logo.png" alt="logo marvel" />
@@ -18,7 +38,7 @@ const Header = () => {
         </Link>
         <Link to={"/"}>
           <div className="header-search">
-            <span>Rechercher</span>
+            <span>Search</span>
           </div>
         </Link>
       </div>

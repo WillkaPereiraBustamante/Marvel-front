@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const CharacterComics = () => {
+const CharacterComics = ({ img }) => {
   const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(true);
   const { id } = useParams();
@@ -30,6 +30,9 @@ const CharacterComics = () => {
     <p>Loading ...</p>
   ) : (
     <main>
+      <div className="character-homepage">
+        <img src={img} alt="" />
+      </div>
       <div className="items-container container">
         {data.comics.map((item) => {
           return (

@@ -7,7 +7,9 @@ import Favorites from "./assets/pages/Favorites";
 import Header from "./assets/components/Header";
 import CharacterComics from "./assets/pages/CharacterComics";
 import Signup from "./assets/pages/SignUp";
+import Login from "./assets/pages/Login";
 import Cookies from "js-cookie";
+import Footer from "./assets/components/Footer";
 
 function App() {
   const [token, setToken] = useState(Cookies.get("marvel-token") || null);
@@ -23,7 +25,7 @@ function App() {
 
   return (
     <Router>
-      <Header />
+      <Header token={token} handleConnexionStatus={handleConnexionStatus} />
       <Routes>
         <Route path="/" element={<Characters />} />
         <Route path="/comics" element={<Comics />} />
@@ -33,7 +35,12 @@ function App() {
           path="/user/signup"
           element={<Signup handleConnexionStatus={handleConnexionStatus} />}
         />
+        <Route
+          path="/user/login"
+          element={<Login handleConnexionStatus={handleConnexionStatus} />}
+        />
       </Routes>
+      <Footer />
     </Router>
   );
 }
