@@ -16,7 +16,6 @@ const CharacterComics = ({ img }) => {
         const response = await axios.get(
           `https://site--willka-marvel-backend--79d24psydslc.code.run/comics/${id}?page=${page}&name=${name}&limit=${limit}`
         );
-        console.log(response.data);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
