@@ -317,14 +317,14 @@ header > nav > ul a:hover {
 }
 
 .footer p {
-  color: white;
+  color: rgb(238, 0, 0);
   font-size: 14px;
 }
 
 .footer a {
   text-decoration: none;
   font-family: TS-Med, sans-serif;
-  color: rgb(238, 0, 0);
+  color: white;
 }
 
 .footer-img {
