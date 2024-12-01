@@ -13,7 +13,7 @@ const Characters = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `http://site--willka-marvel-backend--79d24psydslc.code.run/characters?page=${page}&name=${name}&limit=${limit}`
+          `https://site--willka-marvel-backend--79d24psydslc.code.run/characters?page=${page}&name=${name}&limit=${limit}`
         );
         console.log(response.data);
         setData(response.data);
