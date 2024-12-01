@@ -33,7 +33,10 @@ const Header = ({ token, handleConnexionStatus }) => {
         </div>
         <Link to={"/"}>
           <div className="main-logo">
-            <img src="src/assets/imgs/marvel_logo.png" alt="logo marvel" />
+            <img
+              src="https://res.cloudinary.com/lereacteur-apollo/image/upload/v1582097342/react-new-exercices/Marvel/langfr-1920px-MarvelLogo.svg_uw9pi8.png"
+              alt="logo marvel"
+            />
           </div>
         </Link>
         <Link to={"/"}>
