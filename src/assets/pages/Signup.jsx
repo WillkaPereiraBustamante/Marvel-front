@@ -48,14 +48,10 @@ const Signup = ({ handleConnexionStatus }) => {
         <h2>SIGNUP</h2>
         <form onSubmit={handleSubmit} className="signup-form">
           <div>
-            {avatar ? (
-              "avatar uploaded !"
-            ) : (
-              <label htmlFor="file" className="label-file">
-                <span>+</span>
-                <span>Add avatar</span>
-              </label>
-            )}
+            <label htmlFor="file" className="label-file">
+              <span>+</span>
+              <span>Add avatar</span>
+            </label>
             <input
               className="input-file"
               type="file"
