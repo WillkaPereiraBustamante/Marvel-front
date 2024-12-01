@@ -7,7 +7,7 @@ const Characters = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [page, setPage] = useState(1);
   const [name, setName] = useState("");
-  const [limit, setLimit] = useState(12);
+  const [limit, setLimit] = useState(52);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -29,18 +29,19 @@ const Characters = () => {
     <p>Loading ...</p>
   ) : (
     <main>
-      <div className="pagination">page : {page}</div>
       <nav className="nav-search container">
         <button
           onClick={() => {
-            setPage(page - 1);
+            if (page > 1) {
+              setPage(page - 1);
+            }
           }}
         >
-          previous page
+          previous
         </button>
         <input
           type="text"
-          placeholder="Rechercher"
+          placeholder="Search"
           value={name}
           onChange={(event) => {
             setName(event.target.value);
@@ -51,7 +52,7 @@ const Characters = () => {
             setPage(page + 1);
           }}
         >
-          next page
+          next
         </button>
       </nav>
 
@@ -59,21 +60,39 @@ const Characters = () => {
         {data.results.map((result) => {
           return (
             <Link to={`/comics/${result._id}`} key={result._id}>
-              <div className="characters-card">
+              <div className="items-card">
                 <img
                   src={result.thumbnail.path + "." + result.thumbnail.extension}
                   alt="character picture"
                 />
-                <div className="characters-description">
-                  <span>{result.name}</span>
-                  <span>{result.description}</span>
+                <div className="items-description">
+                  <h3>{result.name}</h3>
+                  <p>{result.description}</p>
                 </div>
               </div>
             </Link>
           );
         })}
       </div>
-      <div className="pagination">page : {page}</div>
+      <div className="nav-search container">
+        <button
+          onClick={() => {
+            if (page > 1) {
+              setPage(page - 1);
+            }
+          }}
+        >
+          previous
+        </button>
+        <span>{page}</span>
+        <button
+          onClick={() => {
+            setPage(page + 1);
+          }}
+        >
+          next
+        </button>
+      </div>
     </main>
   );
 };

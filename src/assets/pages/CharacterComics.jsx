@@ -8,7 +8,7 @@ const CharacterComics = () => {
   const { id } = useParams();
   const [page, setPage] = useState(1);
   const [name, setName] = useState("");
-  const [limit, setLimit] = useState(3);
+  const [limit, setLimit] = useState(100);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -33,13 +33,15 @@ const CharacterComics = () => {
       <div className="items-container container">
         {data.comics.map((item) => {
           return (
-            <div className="comics-card" key={item._id}>
+            <div className="items-card" key={item._id}>
               <img
                 src={item.thumbnail.path + "." + item.thumbnail.extension}
                 alt="character picture"
               />
-              <span>{item.name}</span>
-              <span>{item.description}</span>
+              <div className="items-description">
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
             </div>
           );
         })}

@@ -1,12 +1,26 @@
 import "./App.css";
+import { useState } from "react";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Characters from "./assets/pages/Characters";
 import Comics from "./assets/pages/Comics";
 import Favorites from "./assets/pages/Favorites";
 import Header from "./assets/components/Header";
 import CharacterComics from "./assets/pages/CharacterComics";
+import Signup from "./assets/pages/SignUp";
+import Cookies from "js-cookie";
 
 function App() {
+  const [token, setToken] = useState(Cookies.get("marvel-token") || null);
+
+  const handleConnexionStatus = (token) => {
+    if (token === null) {
+      Cookies.remove("marvel-token");
+    } else {
+      Cookies.set("marvel-token", token, { expires: 14 });
+    }
+    setToken(token);
+  };
+
   return (
     <Router>
       <Header />
@@ -15,6 +29,10 @@ function App() {
         <Route path="/comics" element={<Comics />} />
         <Route path="/comics/:id" element={<CharacterComics />} />
         <Route path="/favorites" element={<Favorites />} />
+        <Route
+          path="/user/signup"
+          element={<Signup handleConnexionStatus={handleConnexionStatus} />}
+        />
       </Routes>
     </Router>
   );

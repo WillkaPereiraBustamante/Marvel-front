@@ -4,14 +4,31 @@
 }
 
 .container {
-  max-width: 1260px;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
 /* HEADER */
+header {
+  background-color: black;
+}
+
+.header-logo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px;
+}
+
+.header-logo a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
 .main-logo {
-  height: 80px;
+  height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,21 +40,42 @@
 
 header > nav > ul {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  gap: 80px;
+  background-color: rgb(56, 56, 56);
+  height: 40px;
 }
 
 header > nav > ul a {
   text-decoration: none;
-  color: black;
+  color: rgb(182, 182, 182);
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 30px;
+  font-size: 14px;
 }
 
-/* Characters */
+header > nav > ul a:hover {
+  color: rgb(255, 23, 23);
+}
+
+/* Characters / Commis / Favorites */
 
 .nav-search {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 0;
+}
+.nav-search input {
+  height: 40px;
+  border-radius: 8px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.nav-search button {
+  height: 40px;
+  width: 60px;
 }
 
 .items-container {
@@ -46,42 +84,156 @@ header > nav > ul a {
   justify-content: center;
   gap: 20px;
   /* border: 2px solid red; */
-  padding: 80px 0;
+  padding: 40px 0;
 }
 
-.characters-card {
-  width: 350px;
-  height: 600px;
+.items-container a {
+  text-decoration: none;
+}
+
+.items-card {
+  color: black;
+  width: 250px;
+  height: 400px;
   /* border: 2px solid black; */
   box-shadow: 5px 5px 25px 1px black;
   border-radius: 10px;
-  padding: 8px;
+  padding: 10px;
+  overflow: scroll;
 }
-.characters-card img {
+
+.items-card h3 {
+  font-size: 18px;
+  margin: 10px 0;
+  text-align: center;
+}
+.items-card p {
+  font-size: 12px;
+  text-align: justify;
+}
+
+.items-card img {
   width: 100%;
   height: 350px;
   border-radius: 10px;
   object-fit: cover;
 }
 
-.comics-card {
-  width: 400px;
-  height: 800px;
-  border: 2px solid black;
-  border-radius: 10px;
-  padding: 8px;
+.items-description {
+  overflow: scroll;
 }
 
-.comics-card img {
-  width: 100%;
-  border-radius: 10px;
-  object-fit: cover;
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  font-size: 30px;
 }
 
-.characters-description {
+/* SIGNUP */
+
+.signup-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.signup-container a {
+  text-decoration: none;
+  color: rgb(99, 99, 99);
+}
+
+.signup-container h2 {
+  margin: 40px 0;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.signup-form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.signup-form > div {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.signup-form input {
+  height: 40px;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid black;
+}
+
+.signup-form button {
+  background-color: rgb(239, 0, 0);
+  border: none;
+  border-radius: 8px;
+  height: 50px;
+  color: white;
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.input-file {
+  display: none;
+}
+
+.label-file {
+  box-sizing: border-box;
+  height: 50px;
+  width: 190px;
+  color: rgb(104, 104, 104);
+  border: 1px solid rgb(104, 104, 104);
+  border-radius: 5px;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.label-file:hover {
+  border: 1px solid rgb(255, 0, 0);
+  color: red;
+}
+
+.label-file span:first-child {
+  font-size: 40px;
+}
+
+.checkbox-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
   gap: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.checkbox-container > div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.checkbox-container > p {
+  text-align: justify;
+  font-size: 12px;
+  color: rgb(187, 187, 187);
+}
+
+.checkbox-container span {
+  color: rgb(117, 117, 117);
 }
 
 @media (max-width: 850px) {
